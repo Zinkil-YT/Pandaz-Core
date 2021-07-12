@@ -1,6 +1,56 @@
 name: Pandaz
 main: Zinkil\pc\Core
-version: 1.0.0
+version: 2.0.0
 api: 3.0.0
 author: Zinkil
-description: "The Public Core Of Pandaz MCPE Practice Server."
+description: "The Offical Core Of Pandaz MCPE Practice Server."
+
+permissions:
+  pc.command.fly:
+    description: 'Permission to enable or disable fly.'
+    default: op
+    pc.command.disguise:
+    description: 'Permission to disguise.'
+    default: op
+    pc.access.staffchat:
+    description: 'Permission to chat in the staff chat.'
+    default: op
+    pc.command.gm:
+    description: 'Permission to change player gamemode.'
+    default: op
+    pc.can.build:
+    description: 'Permission to build in the server.'
+    default: op
+    pc.can.break:
+    description: 'Permission to break blocks in the server.'
+    default: op
+    pc.command.staff:
+    description: 'Permission to enable or disable staff mode.'
+    default: op
+    pc.command.vanish:
+    description: 'Permission to enable or disable vanish.'
+    default: op
+    pc.command.tban:
+    description: 'Permission to temporarily ban players.'
+    default: op
+    pc.command.mute:
+    description: 'Permission to temporarily mute players.'
+    default: op
+    pc.command.freeze:
+    description: 'Permission to freeze players.'
+    default: op
+    pc.staff.cheatalerts:
+    description: 'Permission to receive anticheat alerts.'
+    default: op
+    pc.command.who:
+    description: 'Permission to get player info.'
+    default: op
+    pc.command.alias:
+    description: 'Permission to get player alt accounts.'
+    default: op
+    pc.staff.notifications:
+    description: 'Permission to receive notifications of server acts.'
+    default: op
+    pc.command.pban:
+    description: 'Permission to permenantly ban players.'
+    default: op

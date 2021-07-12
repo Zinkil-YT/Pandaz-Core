@@ -1,5 +1,5 @@
 # Pandaz
-**The Public Version Core System For MCPE Practice Server Pandaz.**
+**The official core system for MCPE Practice Server Pandaz.**
 
 I developed this core for the intention of private use, so everything is hard coded. I suggest understanding [PHP](https://www.php.net/) and [PocketMine-MP](https://github.com/pmmp/PocketMine-MP) before attempting to make changes.
 
@@ -34,6 +34,12 @@ Enjoy. ❤️️
   - Fully custom ender pearls
   - Fully custom rods
 - [x] Cosmetics & Player-Based Preferences
+  - CPS Counter
+  - Health and Distance (Reach) Counter
+  - Combat Counter
+  - Auto Rekit
+  - Auto Queue
+  - Auto (Toggle) Sprint
 - [x] Ranks & Permissions
 - [x] Staff utilities
   - Permanent ban
@@ -46,10 +52,10 @@ Enjoy. ❤️️
   - Reach
   - Hitbox
   - CPS
-  - High ping  
+  - High ping
 
 # Questions or any help
 Contact me on discord @ Zinkil#1808.
-and go subscribe for my channel [MR zinkil](https://www.youtube.com/channel/UCW1PI028SEe2wi65w3FYCzg) ❤️
+and go subscribe for my channel [MR Zinkil](https://www.youtube.com/channel/UCW1PI028SEe2wi65w3FYCzg) ❤️
 
 ##### Developed by Zinkil YT
