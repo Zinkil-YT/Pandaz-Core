@@ -52,6 +52,7 @@ use pocketmine\event\server\DataPacketSendEvent;
 use pocketmine\event\server\DataPacketReceiveEvent;
 use pocketmine\network\mcpe\protocol\EmotePacket;
 use pocketmine\network\mcpe\protocol\DisconnectPacket;
+use pocketmine\network\mcpe\protocol\types\inventory\UseItemOnEntityTransactionData;
 use pocketmine\network\mcpe\protocol\InventoryTransactionPacket;
 use pocketmine\network\mcpe\protocol\LevelSoundEventPacket;
 use pocketmine\network\mcpe\protocol\PlayerActionPacket;
@@ -420,7 +421,6 @@ class PlayerListener implements Listener{
 			}
 			if($player->getY() >= 128){
 				if($level!=="lobby"){
-				//if($level=="battlefield" or $level=="nodebuff" or $level=="gapple" or $level=="combo" or $level=="soup"){
 					$event->setCancelled();
 				}
 			}
@@ -577,7 +577,7 @@ class PlayerListener implements Listener{
 			}
 		}
 		if($this->plugin->getClickHandler()->isInArray($player)){
-			if($packet::NETWORK_ID===InventoryTransactionPacket::NETWORK_ID and $packet->transactionType===InventoryTransactionPacket::TYPE_USE_ITEM_ON_ENTITY){
+			if($packet instanceof InventoryTransactionPacket and $packet->trData->getTypeId()===InventoryTransactionPacket::TYPE_USE_ITEM_ON_ENTITY){
 				$this->plugin->getClickHandler()->addClick($player);
 			}
 		}
