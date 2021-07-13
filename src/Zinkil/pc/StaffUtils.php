@@ -95,13 +95,13 @@ class StaffUtils{
 		if($bool===true){
 			$player->setCoordins(true);
 			$packet=new GameRulesChangedPacket();
-			$packet->gameRules=["showcoordinates" => [1, true]];
+			$packet->gameRules=["showcoordinates" => [1, true, false]];
 			$player->dataPacket($packet);
 			$player->sendMessage("§aYou will now see your coords.");
 		}else{
 			$player->setCoordins(false);
 			$packet=new GameRulesChangedPacket();
-			$packet->gameRules=["showcoordinates" => [1, false]];
+			$packet->gameRules=["showcoordinates" => [1, false, false]];
 			$player->dataPacket($packet);
 			$player->sendMessage("§aYou will no longer see your coords.");
 		}
