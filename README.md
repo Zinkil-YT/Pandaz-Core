@@ -51,7 +51,7 @@
   - High ping
 
 ## Help
-Contact me on discord @ Zinkil#2006.
+Contact me on discord @Zinkil#2006.
 
 
 <b>Made with ❤ by Zinkil</b>
