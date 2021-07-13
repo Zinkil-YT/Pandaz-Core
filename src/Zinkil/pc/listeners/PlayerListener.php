@@ -152,7 +152,7 @@ class PlayerListener implements Listener{
 		$player=$event->getPlayer();
 		$bar = new BossBar();
 		if($player instanceof CPlayer) $player->initializeJoin();
-		$event->setJoinMessage("§f(§a+§f) §a".$player->getDisplayName());
+		$event->setJoinMessage("§f(§a+§f) §a".$player->getDisplayName();
 		$player->addTitle("§3Welcome At", "§bPandaz §fPractice", 20, 50, 60);
 		$bar->setTitle("§l§bPandaz §l§fPractice");
 		$bar->setSubTitle("§b");
