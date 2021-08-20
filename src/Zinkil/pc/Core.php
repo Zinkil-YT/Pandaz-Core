@@ -19,13 +19,13 @@ use pocketmine\nbt\tag\StringTag;
 use pocketmine\network\mcpe\protocol\EventPacket;
 use pocketmine\network\mcpe\protocol\LevelEventPacket;
 use pocketmine\network\mcpe\protocol\types\SkinAdapterSingleton;
-use Zinkil\pc\commands\{KickAllCommand, AntiCheatCommand, ResetStatsCommand, SetClanTagCommand, ReplyCommand, DuelCommand, ForceKitCommand, KitCommand, NickCommand, MuteCommand, TempBanCommand, PermBanCommand, CoordsCommand, MessagesCommand, VanishCommand, KillCommand, PartyCommand, FlyCommand, StopCommand, ExecCommand, TpallCommand, AliasCommand, PingCommand, ForceRankCommand, ManageCommand, OnlineCommand, DisguiseCommand, MuteChatCommand, WhoCommand, StaffCommand, HubCommand, TestCommand, WhisperCommand, AnnounceCommand, FreezeCommand, RankCommand, GamemodeCommand};
+use Zinkil\pc\commands\{KickAllCommand, AntiCheatCommand, ResetStatsCommand, SetClanTagCommand, ReplyCommand, DuelCommand, ForceKitCommand, KitCommand, NickCommand, MuteCommand, TempBanCommand, PermBanCommand, CoordsCommand, MessagesCommand, VanishCommand, KillCommand, PartyCommand, FlyCommand, StopCommand, ExecCommand, TpallCommand, AliasCommand, PingCommand, ForceRankCommand, ManageCommand, OnlineCommand, DisguiseCommand, MuteChatCommand, WhoCommand, StaffCommand, HubCommand, WhisperCommand, AnnounceCommand, FreezeCommand, RankCommand, GamemodeCommand};
 use Zinkil\pc\listeners\{ServerListener, AntiCheatListener, WorldListener, ItemListener, PlayerListener, DistanceListener};
 use Zinkil\pc\tasks\{FlagsTask, StatusTask, ParticleTask, PlayerTask, VoteAccessTask, TemporaryBansTask, MutesTask, DuelTask, CombatTask, TemporaryRankTask, DatabaseTask, SetDayTask, DropsTask, MotdTask, PingTask, FloatingTextTask, VanishTask, NameTagTask, BroadcastTask};
 use Zinkil\pc\handlers\{ArenaHandler, DuelHandler, ClickHandler, ScoreboardHandler, PermissionHandler, DatabaseHandler};
 use Zinkil\pc\entities\{PotionEntity, FastPotion, DefaultPotion, Pearl, Hook};
 use Zinkil\pc\items\{Splash, Rod};
-use Zinkil\pc\bots\{TestBot, EasyBot, MediumBot, HardBot, HackerBot};
+use Zinkil\pc\bots\{EasyBot, MediumBot, HardBot, HackerBot};
 use Zinkil\pc\data\Provider;
 use Zinkil\pc\multiver\PMPlayer;
 use Zinkil\pc\{Forms, StaffUtils};
@@ -180,30 +180,13 @@ class Core extends PluginBase{
 		$this->staff->exec("CREATE TABLE IF NOT EXISTS permanentbans (player TEXT PRIMARY KEY, reason TEXT, staff TEXT, date TEXT);");
 		$this->staff->exec("CREATE TABLE IF NOT EXISTS warnpoints (player TEXT PRIMARY KEY, points INT);");
 		$this->staff->exec("CREATE TABLE IF NOT EXISTS staffstats (player TEXT PRIMARY KEY, timesjoined INT, timesleft INT, pointsgiven INT, mutesissued INT, kicksissued INT, temporarybansissued INT, permanentbansissued INT);");
-		$this->clans=new\SQLite3($this->getDataFolder()."PandazClans.db");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS master (player TEXT PRIMARY KEY, clan TEXT, rank TEXT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS confirm (player TEXT PRIMARY KEY, clan TEXT, invitemainy TEXT, timestamp INT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS alliance (player TEXT PRIMARY KEY, clan TEXT, requestemainy TEXT, timestamp INT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS motdrcv (player TEXT PRIMARY KEY, timestamp INT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS motd (clan TEXT PRIMARY KEY, message TEXT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS noticolor (clan TEXT PRIMARY KEY, color TEXT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS privacy (clan TEXT PRIMARY KEY, open TEXT);");//true false
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS friendlyfire (clan TEXT PRIMARY KEY, pvp TEXT);");//true false
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS plots (clan TEXT PRIMARY KEY, x1 INT, z1 INT, x2 INT, z2 INT, world TEXT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS home (clan TEXT PRIMARY KEY, x INT, y INT, z INT, world TEXT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS power (clan TEXT PRIMARY KEY, power INT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS maxplayers (clan TEXT PRIMARY KEY, slots INT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS allies (ID INT PRIMARY KEY, clan1 TEXT, clan2 TEXT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS enemies (ID INT PRIMARY KEY, clan1 TEXT, clan2 TEXT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS alliescountlimit (clan TEXT PRIMARY KEY, count INT);");
-		$this->clans->exec("CREATE TABLE IF NOT EXISTS created (clan TEXT PRIMARY KEY, date TEXT);");
 
 		$this->getLogger()->info("
 		
 		 --- Pandaz Practice ---
 		");
 
-		$this->getServer()->getNetwork()->setName("§bPandaz §f- Practice §3");
+		$this->getServer()->getNetwork()->setName("§l§bPandaz §f[1.17]");
 	}
 	public function onDisable(){
 		foreach($this->getServer()->getLevels() as $levels){
@@ -352,7 +335,6 @@ class Core extends PluginBase{
 		Entity::registerEntity(DefaultPotion::class, true, ["DefaultPotion"]);
 		Entity::registerEntity(Pearl::class, true, ["CPPearl"]);
 		Entity::registerEntity(Hook::class, false, ["FishingHook", "minecraft:fishing_rod"]);
-		Entity::registerEntity(TestBot::class, true, ["TestBot"]);
 		Entity::registerEntity(EasyBot::class, true);
 		Entity::registerEntity(MediumBot::class, true);
 		Entity::registerEntity(HardBot::class, true);

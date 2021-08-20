@@ -1,9 +1,9 @@
 name: Pandaz
 main: Zinkil\pc\Core
-version: 2.0.0
+version: 1.0.0
 api: 3.0.0
 author: Zinkil
-description: "The Offical Core Of Pandaz MCPE Practice Server."
+description: "The Official Core Of The MCPE Practice Server Pandaz"
 
 permissions:
   pc.command.fly:
