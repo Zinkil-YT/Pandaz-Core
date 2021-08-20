@@ -14,7 +14,7 @@ The Official Core Of The MCPE Practice Server Pandaz.
 - Ranks & Permissions
 - Staff Utilities
 - Anti-Cheat
-- Database (SqlLite3)
+- Database (SQLite3)
 
 ## Config
 - Arena Config
