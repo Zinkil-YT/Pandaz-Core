@@ -3,7 +3,6 @@ The Official Core Of The MCPE Practice Server Pandaz.
 
 ## Features
 - FFA
-- Bots Duels
 - Duels 
 - Party System
 - Stats
