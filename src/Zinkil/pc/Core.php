@@ -166,7 +166,7 @@ class Core extends PluginBase{
 		//$this->provider=new Provider($this);
 		//$this->provider->open();
 		
-		$this->main=new\SQLite3($this->getDataFolder()."Pandaz.db");
+		$this->main = new SQLite3($this->getDataFolder()."Pandaz.db");
 		$this->main->exec("CREATE TABLE IF NOT EXISTS rank (player TEXT PRIMARY KEY, rank TEXT);");
 		$this->main->exec("CREATE TABLE IF NOT EXISTS essentialstats (player TEXT PRIMARY KEY, kills INT, deaths INT, kdr REAL, killstreak INT, bestkillstreak INT, coins INT, elo INT);");
 		$this->main->exec("CREATE TABLE IF NOT EXISTS matchstats (player TEXT PRIMARY KEY, elo INT, wins INT, losses INT, elogained INT, elolost INT);");
@@ -174,7 +174,7 @@ class Core extends PluginBase{
 		$this->main->exec("CREATE TABLE IF NOT EXISTS temporaryranks (player TEXT PRIMARY KEY, temprank TEXT, duration INT, oldrank TEXT);");
 		$this->main->exec("CREATE TABLE IF NOT EXISTS voteaccess (player TEXT PRIMARY KEY, bool TEXT, duration INT);");
 		$this->main->exec("CREATE TABLE IF NOT EXISTS levels (player TEXT PRIMARY KEY, level INT, neededxp INT, currentxp INT, totalxp INT);");
-		$this->staff=new\SQLite3($this->getDataFolder()."PandazStaff.db");
+		$this->staff = new SQLite3($this->getDataFolder()."PandazStaff.db");
 		$this->staff->exec("CREATE TABLE IF NOT EXISTS mutes (player TEXT PRIMARY KEY, reason TEXT, duration INT, staff TEXT, date TEXT);");
 		$this->staff->exec("CREATE TABLE IF NOT EXISTS temporarybans (player TEXT PRIMARY KEY, reason TEXT, duration INT, staff TEXT, givenpoints INT, date TEXT);");
 		$this->staff->exec("CREATE TABLE IF NOT EXISTS permanentbans (player TEXT PRIMARY KEY, reason TEXT, staff TEXT, date TEXT);");
